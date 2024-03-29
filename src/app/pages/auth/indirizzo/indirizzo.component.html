@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Completa il tuo profilo</h1>
+  <h2>Indirizzo</h2>
+  <form #form="ngForm" (ngSubmit)="registra(form)">
+    <div class="form-group">
+      <label for="cap">Cap</label>
+      <input type="text" name="cap" id="cap" class="form-control" placeholder="Inserisci il CAP" required ngModel>
+    </div>
+    <div class="form-group">
+      <label for="civico">Civico</label>
+      <input type="text" name="civico" id="civico" class="form-control" placeholder="Inserisci il civico" required
+        ngModel>
+    </div>
+    <div class="form-group">
+      <label for="localita">Località</label>
+      <input type="text" name="localita" id="localita" class="form-control" placeholder="Inserisci la località" required
+        ngModel>
+    </div>
+    <div class="form-group">
+      <label for="via">Via</label>
+      <input type="text" name="via" id="via" class="form-control" placeholder="Inserisci la via" required ngModel>
+    </div>
+
+    <button type="submit" [disabled]="isLoading" class="btn">
+      Salva Indirizzo
+      <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    </button>
+    <p *ngIf="savedSuccessfully" class="text-success">Indirizzo salvato con successo!</p>
+  </form>
+</div>

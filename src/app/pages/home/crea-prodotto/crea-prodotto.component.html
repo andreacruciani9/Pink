@@ -1,0 +1,110 @@
+<!--<div class="container">-->
+<!--  <h1>crea Prodotto</h1>-->
+<!-- <form #form="ngForm" (ngSubmit)="registra(form)">-->
+<!--    <div class="form-group">-->
+<!--      <label for="name">Name</label>-->
+<!--      <input type="text" name="name" id="name" class="form-control" placeholder="Inserisci il name" required ngModel>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="descrizione">Descrizione</label>-->
+<!--      <input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Inserisci il descrizione"
+      required ngModel>-->
+<!--      <div class="form-group">-->
+<!--        <label for="immagini">immagini</label>-->
+<!--        <input type="file" name="immagini" id="immagini" class="form-control" placeholder="Inserisci l'immagine"
+        required ngModel>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="prezzo">Prezzo</label>-->
+<!--        <input type="number" name="prezzo" id="prezzo" class="form-control" placeholder="Inserisci il prezzo" required
+        ngModel>-->
+<!--      </div>-->
+<!--
+  </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="quantita">quantita</label>-->
+<!--      <input type="number" name="quantita" id="quantita" class="form-control" placeholder="Inserisci la quantita"
+      required ngModel>-->
+<!--    </div>-->
+<!--
+  <div class="form-group">-->
+<!--      <label for="categorie">categorie</label>-->
+<!--      <input type="text" name="categorie" id="categorie" class="form-control" placeholder="Inserisci la categoria"
+      required ngModel>-->
+<!--    </div>-->
+<!--    <button type="submit" [disabled]="isLoading" class="btn">-->
+<!--      Crea prodotto
+  <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>   </button>-->
+<!-- </form>-->
+<!--</div>-->
+<h1 class="text-center"> Crea il prodotto</h1>
+<form #prodottoForm="ngForm" (ngSubmit)="creaProdotto(prodottoForm)">
+  <div class="container">
+    <div class="row text-center mt-5 mb-4">
+      <div class="form-group">
+        <div class="col">
+          <label for="name">Nome</label>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="name" required [(ngModel)]="prodotto.name" name="name">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col">
+          <label for="descrizione">Descrizione</label>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="descrizione" required [(ngModel)]="prodotto.descrizione"
+            name="descrizione">
+        </div>
+      </div>
+      <div class="form-group">
+
+        <label for="prezzo">Prezzo</label>
+
+        <input type="number" class="form-control" id="prezzo" required [(ngModel)]="prodotto.prezzo" name="prezzo">
+      </div>
+      <div class="form-group">
+
+        <div class="col">
+          <label for="quantita">Quantità</label>
+        </div>
+        <div class="col">
+          <input type="number" class="form-control" id="quantita" required [(ngModel)]="prodotto.quantita"
+            name="quantita">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col">
+          <label for="tipiCategorie">Categoria</label>
+        </div>
+        <div class="col">
+          <select class="form-control" id="tipiCategorie" required [(ngModel)]="prodotto.tipoCategorie"
+            name="tipiCategorie">
+            <option value="VISO">Viso</option>
+            <option value="CORPO">Corpo</option>
+            <!-- Aggiungi altre categorie qui -->
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col">
+          <label for="immagine">Immagine del Prodotto</label>
+        </div>
+        <div class="col">
+          <input type="file" class="form-control" id="immagine" (change)="caricaImmagine($event)">
+        </div>
+      </div>
+      <div class="col-12 mt-5">
+        <button type="submit" class="btn btn-primary">Crea Prodotto</button>
+      </div>
+      <div class="col">
+        <input type="checkbox" placeholder="sconto" name="discount-checkbox" id="discount-checkbox" #isChecked
+          (change)="true">
+      </div>
+      <div *ngIf="isChecked.checked">
+        <p>test is checked</p>
+      </div>
+    </div>
+  </div>
+</form>

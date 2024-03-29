@@ -1,0 +1,29 @@
+<h1 class="text-center mb-4 mt-5">Crea il tuo Sconto</h1>
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <div class="row flex-column text-center mb-2">
+      <div class="col mb-2">
+        <label for="code">Codice Sconto</label>
+      </div>
+      <div class="col mb-2">
+        <input id="code" type="text" [(ngModel)]="sconto.code" name="code" required>
+      </div>
+      <div class="col mb-2">
+        <label for="importoSconto">Importo Sconto</label>
+      </div>
+      <div class="col mb-2">
+        <input id="importoSconto" type="number" [(ngModel)]="sconto.importoSconto" name="importoSconto" required>
+      </div>
+      <div class="col mb-2">
+        <label for="percentuale">Percentuale</label>
+      </div>
+      <div class="col mb-2">
+        <input id="percentuale" type="number" [(ngModel)]="sconto.percentuale" name="percentuale" required>
+      </div>
+      <div class="col">
+        <button type="submit">Crea Sconto</button>
+      </div>
+    </div>
+  </form>
+</div>
+<a routerLink="../../menu">menu</a>
